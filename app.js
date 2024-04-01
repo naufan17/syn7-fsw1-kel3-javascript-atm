@@ -1,32 +1,16 @@
-const readLine = require('readline');
-
 const { login } = require('./scripts/login');
 const { logout } = require('./scripts/logout');
-const { validatePin } = require('./scripts/validatePin');
-const { validateCardNumber } = require('./scripts/validateCardNumber');
 const { checkBalance } = require('./scripts/checkBalance');
 const { deposit } = require('./scripts/deposit');
 const { viewTransactions } = require('./scripts/viewTransactions');
-
-const rl = readLine.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-function askQuestion(question) {
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      resolve(answer);
-    });
-  });
-}
+const { askQuestion } = require('./scripts/utils');
 
 async function main() {
   login()
 
   do {
     console.log('Menu ATM:');
-    console.log('1. Cek Saldo');
+    console.log('1. Cek Saldo'); 
     console.log('2. Setor Tunai');
     console.log('3. Riwayat Transaksi');
     console.log('4. Keluar');
