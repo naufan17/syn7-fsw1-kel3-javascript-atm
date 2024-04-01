@@ -1,10 +1,10 @@
 const readLine = require('readline');
 
-const { validatePin } = require('./script/validatePin');
-const { validateCardNumber } = require('./script/validateCardNumber');
-const { checkBalance } = require('./script/checkBalance');
-const { deposit } = require('./script/deposit');
-const { viewTransactions } = require('./script/viewTransactions');
+const { validatePin } = require('./scripts/validatePin');
+const { validateCardNumber } = require('./scripts/validateCardNumber');
+const { checkBalance } = require('./scripts/checkBalance');
+const { deposit } = require('./scripts/deposit');
+const { viewTransactions } = require('./scripts/viewTransactions');
 
 const rl = readLine.createInterface({
   input: process.stdin,

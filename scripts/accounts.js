@@ -3,7 +3,7 @@ const accountA = {
     balance: 0,
     pin: '123456',
     cardNumber: '1234 5678 1234 5678',
-transactions: [],
+    transactions: [],
 };
 
 const accountB = {
@@ -16,4 +16,4 @@ const accountB = {
 
 const accounts = [accountA, accountB];
 
-module.exports = { accountA, accountB, accounts };
+module.exports = { accounts };
