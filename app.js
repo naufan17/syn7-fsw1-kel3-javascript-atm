@@ -1,33 +1,15 @@
 const readLine = require('readline');
 
+const { validatePin } = require('./script/validatePin');
+const { validateCardNumber } = require('./script/validateCardNumber');
+const { checkBalance } = require('./script/checkBalance');
+const { deposit } = require('./script/deposit');
+const { viewTransactions } = require('./script/viewTransactions');
+
 const rl = readLine.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-const accountA = {
-  name: 'John Doe',
-  balance: 0,
-  pin: '123456',
-  cardNumber: '1234 5678 1234 5678',
-  transactions: [],
-};
-
-const accountB = {
-  name: 'Jane Doe',
-  balance: 0,
-  pin: '654321',
-  cardNumber: '5678 1234 5678 1234',
-  transactions: [],
-};
-
-const accounts = [accountA, accountB];
-
-function validateCardNumber() {}
-function validatePin() {}
-function checkBalance() {}
-function deposit() {}
-function viewTransactions() {}
 
 function askQuestion(question) {
   return new Promise((resolve) => {
@@ -49,6 +31,15 @@ async function main() {
 
     switch (parseInt(choice)) {
       case 1:
+        checkBalance()
+        break;
+      case 2:
+        deposit()
+        break;
+      case 3:
+        viewTransactions()
+        break;
+      case 4:
         break;
     }
   } while (choice !== 4);
