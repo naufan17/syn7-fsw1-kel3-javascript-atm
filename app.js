@@ -1,5 +1,7 @@
 const readLine = require('readline');
 
+const { login } = require('./scripts/login');
+const { logout } = require('./scripts/logout');
 const { validatePin } = require('./scripts/validatePin');
 const { validateCardNumber } = require('./scripts/validateCardNumber');
 const { checkBalance } = require('./scripts/checkBalance');
@@ -20,6 +22,8 @@ function askQuestion(question) {
 }
 
 async function main() {
+  login()
+
   do {
     console.log('Menu ATM:');
     console.log('1. Cek Saldo');
