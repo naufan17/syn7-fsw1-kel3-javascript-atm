@@ -3,35 +3,41 @@ const { logout } = require('./scripts/logout');
 const { checkBalance } = require('./scripts/checkBalance');
 const { deposit } = require('./scripts/deposit');
 const { viewTransactions } = require('./scripts/viewTransactions');
-const { askQuestion } = require('./scripts/utils');
+const { askQuestion, rl } = require('./scripts/utils');
 
 async function main() {
-  await login()
+  try {
+    const account = await login();
 
-  do {
-    console.log('Menu ATM:');
-    console.log('1. Cek Saldo'); 
-    console.log('2. Setor Tunai');
-    console.log('3. Riwayat Transaksi');
-    console.log('4. Keluar');
-
-    choice = await askQuestion('Masukkan pilihan Anda: ');
-
-    switch (parseInt(choice)) {
-      case 1:
-        checkBalance()
-        break;
-      case 2:
-        deposit()
-        break;
-      case 3:
-        viewTransactions()
-        break;
-      case 4:
-        logout();
-        break;
-    }
-  } while (choice < 1 && choice > 4);
+    do {
+      console.log('Menu ATM:');
+      console.log('1. Cek Saldo'); 
+      console.log('2. Setor Tunai');
+      console.log('3. Riwayat Transaksi');
+      console.log('4. Keluar');
+  
+      choice = await askQuestion('Masukkan pilihan Anda: ');
+  
+      switch (parseInt(choice)) {
+        case 1:
+          checkBalance()
+          break;
+        case 2:
+          deposit()
+          break;
+        case 3:
+          viewTransactions()
+          break;
+        case 4:
+          logout();
+          break;
+      }
+    } while (choice < 1 || choice > 4);  
+  } catch (err) {
+    console.log(`Error: ${err.message}`);
+  } finally {
+    rl.close();
+  }
 }
 
 main(); 
