@@ -7,8 +7,9 @@ async function login() {
     let cardNumber = await askQuestion('Masukkan card number: ');
     let pin = await askQuestion('Masukkan PIN: ');
   
-    // Validation
     // Cek CardNumber & PIN
+    const account = validateCardNumber();
+    validatePin(pin, account);
     // Save user login
     
     console.log('Username:');
