@@ -1,4 +1,5 @@
-const { account } = require("./accounts");
+const { accounts } = require('./accounts');
+const { user } = require('./user');
 
 function deposit(account, amount) {
   account.balance += amount;

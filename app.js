@@ -6,7 +6,7 @@ const { viewTransactions } = require('./scripts/viewTransactions');
 const { askQuestion } = require('./scripts/utils');
 
 async function main() {
-  login()
+  await login()
 
   do {
     console.log('Menu ATM:');
@@ -28,9 +28,10 @@ async function main() {
         viewTransactions()
         break;
       case 4:
+        logout();
         break;
     }
-  } while (choice !== 4);
+  } while (choice < 1 && choice > 4);
 }
 
-main();
+main(); 
