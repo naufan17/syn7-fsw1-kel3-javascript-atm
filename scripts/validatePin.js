@@ -20,7 +20,7 @@ function validatePin(input, account) {
         throw new Error(errText);
     }
 
-    if (account.pin !== input) {
+    if (accounts[account].pin !== input) {
         throw new Error(errText);
     }
 }

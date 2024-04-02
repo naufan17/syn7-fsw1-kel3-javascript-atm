@@ -22,11 +22,11 @@ function validateCardNumber(input) {
     }
 
     let found = false;
-    let account = null;
-    for (const a of accounts) {
-        if (a.cardNumber.split(' ').join('') === uInput) {
+    let accKey = null;
+    for (const a in accounts) {
+        if (accounts[a].cardNumber.split(' ').join('') === uInput) {
             found = true;
-            account = a;
+            accKey = a;
             break;
         }
     }
@@ -35,7 +35,7 @@ function validateCardNumber(input) {
         throw new Error('card is not found');
     }
 
-    return account;
+    return accKey;
 }
 
 module.exports = { validateCardNumber };
