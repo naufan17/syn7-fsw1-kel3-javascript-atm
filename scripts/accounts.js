@@ -14,6 +14,7 @@ const accountB = {
     transactions: [],
 };
 
-const accounts = [ accountA, accountB ];
+
+const accounts = {accountA, accountB};
 
 module.exports = { accounts };
