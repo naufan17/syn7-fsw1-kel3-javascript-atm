@@ -8,8 +8,10 @@ const { askQuestion, rl } = require('./scripts/utils');
 async function main() {
   try {
     const account = await login();
+    let choice;
 
     do {
+      console.log('======================')
       console.log('Menu ATM:');
       console.log('1. Cek Saldo'); 
       console.log('2. Setor Tunai');
@@ -34,8 +36,6 @@ async function main() {
       }
     } while (choice !== 4);  
   } catch (err) {
-    console.log(`Error: ${err.message}`);
-  } finally {
     rl.close();
   }
 }
