@@ -1,5 +1,4 @@
 const { askQuestion } = require('./utils');
-const { user } = require('./user');
 const { validatePin } = require('./validatePin');
 const { validateCardNumber } = require('./validateCardNumber');
 

@@ -1,5 +1,3 @@
-const { accounts } = require('./accounts');
-
 function inputIsValid(input) {
     if (input.length !== 6) {  
         return false;

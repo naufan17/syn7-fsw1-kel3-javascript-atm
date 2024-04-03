@@ -1,6 +1,3 @@
-const { accounts } = require("./accounts");
-const { user } = require("./user");
-
 function viewTransactions(account) {
   const transactions = account.transactions;
   console.log("Riwayat Transaksi:");
