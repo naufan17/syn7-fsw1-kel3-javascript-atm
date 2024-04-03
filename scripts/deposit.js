@@ -11,7 +11,7 @@ async function deposit(account) {
       return;
     }
     account.balance += amount;
-    account.transactions.push(`Deposit: +${amount}`);
+    account.transactions.push({ type: "Deposit", amount: amount });
     console.log("Sedang memproses transaksi...");
     console.log("Setoran berhasil. Saldo Anda sekarang: " + account.balance);
     return true; // Mengembalikan true jika setoran berhasil dilakukan
