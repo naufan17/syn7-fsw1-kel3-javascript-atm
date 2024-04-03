@@ -25,26 +25,21 @@ async function main() {
           checkBalance(account);
           break;
         case 2:
-          const amount = parseFloat(
-            await askQuestion("Masukkan nominal setoran Anda: ")
-          );
-          if (amount <= 0 || isNaN(amount)) {
-            console.log("Nominal tidak valid");
-            break;
+          if (await deposit(account)) {
+            continue; // Jika setoran berhasil, tampilkan kembali menu ATM
           }
-          deposit(account, amount);
-          console.log("Sedang memproses transaksi...");
-          console.log(
-            "Setoran berhasil. Saldo Anda sekarang: " + checkBalance(account)
-          );
+          break;
         case 3:
           viewTransactions(account);
           break;
         case 4:
           logout();
           break;
+        default:
+          console.log("Pilihan tidak valid, silakan coba lagi.");
+          break;
       }
-    } while (choice !== 4);
+    } while (parseInt(choice) !== 4);
   } catch (err) {
     rl.close();
   }
