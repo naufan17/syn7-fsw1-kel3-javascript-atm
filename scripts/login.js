@@ -4,15 +4,18 @@ const { validatePin } = require('./validatePin');
 const { validateCardNumber } = require('./validateCardNumber');
 
 async function login() {
-    let cardNumber = await askQuestion('Masukkan card number: ');
-    let pin = await askQuestion('Masukkan PIN: ');
-  
-    // Cek CardNumber & PIN
-    const account = validateCardNumber();
-    validatePin(pin, account);
-    // Save user login
-    
-    console.log('Username:');
+    try {
+        let cardNumber = await askQuestion('Masukkan card number: ');      
+        const account = validateCardNumber(cardNumber);
+
+        let pin = await askQuestion('Masukkan PIN: ');
+        validatePin(pin, account);
+
+        console.log(`Selamat datang, ${account.name}!`);
+        return account;
+    } catch (err) {
+        throw err;
+    }
 }
 
 module.exports = { login };

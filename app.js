@@ -7,7 +7,7 @@ const { askQuestion, rl } = require('./scripts/utils');
 
 async function main() {
   try {
-    await login()
+    const account = await login();
 
     do {
       console.log('Menu ATM:');
@@ -26,7 +26,7 @@ async function main() {
           deposit()
           break;
         case 3:
-          viewTransactions()
+          viewTransactions(account);
           break;
         case 4:
           logout();
