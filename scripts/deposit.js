@@ -1,3 +1,8 @@
-function deposit() {}
+const { account } = require("./accounts");
 
+function deposit(account, amount) {
+  account.balance += amount;
+  account.transactions.push(`Deposit:  + ${amount}`);
+  return account.balance;
+}
 module.exports = { deposit };
