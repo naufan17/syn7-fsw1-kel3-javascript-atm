@@ -20,7 +20,7 @@ async function main() {
   
       switch (parseInt(choice)) {
         case 1:
-          checkBalance()
+          checkBalance(account)
           break;
         case 2:
           deposit()
